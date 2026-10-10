@@ -16,6 +16,29 @@ After the first publication, the intended local Git remote roles are:
 
 Development remains local-first: upstream changes may be fetched and reviewed locally, but this project does not depend on a platform-level repository relationship to track or integrate them.
 
+## Mandatory trusted SSH host identity upstream contribution
+
+Upstream default in official teefloo/asuswrt-mcp master was
+paramiko.AutoAddPolicy(), with ssh_strict_host_key=false.
+The official SSH implementation already passes
+look_for_keys=False and allow_agent=False, so no upstream patch
+is needed for implicit agent/key lookup.
+Local AS-P03 commit f86b830 enforces fail-closed known-host
+validation and removes the insecure bypass.
+
+[Issue #5](https://github.com/teefloo/asuswrt-mcp/issues/5)
+and [draft PR #6](https://github.com/teefloo/asuswrt-mcp/pull/6)
+now carry a targeted upstream-native version of that policy,
+based on master 46516892cade39177327d404fed09d91b1a3a8dd
+at head 1d324f5d0568e7f223cebac45f44e61d19e8cf6c.
+The new host-key policy regression failed on original source
+and passed after the change; all 70 router-independent upstream
+Python unit tests and the lockfile check passed.
+The PR removes the optional insecure host-key bypass and
+documents known_hosts pretrust, which affects first-use
+compatibility and needs maintainer review and representative
+live-router acceptance before source/release adoption.
+
 ## Transitive dependency upstream contribution
 
 An independent maintained downstream source commit ce3ae38 refreshed
@@ -82,13 +105,14 @@ This inline register is the product-owned logical-patch projection used by SDLC-
     {
       "id": "AS-P03",
       "kind": "upstream",
-      "scope": "SSH host-key validation and no implicit ssh-agent lookup",
+      "scope": "Mandatory known-host SSH router identity verification (upstream already disables implicit ssh-agent and key search)",
       "local_commits": [
         "f86b830"
       ],
       "checked_on": "2026-10-10",
-      "issue": null,
-      "pr": null
+      "issue": "https://github.com/teefloo/asuswrt-mcp/issues/5",
+      "pr": "https://github.com/teefloo/asuswrt-mcp/pull/6",
+      "pr_state": "draft"
     },
     {
       "id": "AS-P04",
