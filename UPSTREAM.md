@@ -16,6 +16,33 @@ After the first publication, the intended local Git remote roles are:
 
 Development remains local-first: upstream changes may be fetched and reviewed locally, but this project does not depend on a platform-level repository relationship to track or integrate them.
 
+## Transitive dependency upstream contribution
+
+An independent maintained downstream source commit ce3ae38 refreshed
+the retained transitive PyJWT and urllib3 lockfile entries.
+After checking upstream issues and PRs, the official upstream
+[issue #2](https://github.com/teefloo/asuswrt-mcp/issues/2)
+and [draft PR #4](https://github.com/teefloo/asuswrt-mcp/pull/4)
+now track the generic change against upstream master
+46516892cade39177327d404fed09d91b1a3a8dd.
+The exact PR HEAD is
+5eb17316c371c4520df71e5fb55535e3f82c680e.
+The official upstream source passed uv lock --check --offline
+and 69 unit tests on the exact patch, plus git diff --check.
+Only uv.lock changes; no router runtime is modified.
+
+X1pheR/asuswrt-mcp is an independently maintained downstream
+repository, NOT an upstream-network GitHub fork. An earlier direct
+cross-repository PR attempt therefore failed GitHub head validation;
+temporary fork-local PR #15 was closed unmerged.
+A separate actual GitHub contribution fork,
+X1pheR/asuswrt-mcp-1, was then created without renaming,
+re-parenting or modifying the existing maintained repository.
+Its branch contains only this upstream-native tested change.
+A draft upstream PR does not prove merge or official release inclusion;
+do not remove the patch until upstream release adoption and
+representative dependency and router compatibility acceptance.
+
 ## Machine-readable downstream patch register
 
 This inline register is the product-owned logical-patch projection used by SDLC-09 structural verification. Its state does not replace current GitHub issue/PR verification, an actual upstream-compatible tested diff, or any required operator-approved product ADR. Unlinked rows are explicitly nonconformant; no historical fork behavior has been grandfathered. Cross-product integration and release actions remain gated separately. Patch scope and local commit mappings require further semantic review before external contribution.
@@ -71,8 +98,9 @@ This inline register is the product-owned logical-patch projection used by SDLC-
         "ce3ae38"
       ],
       "checked_on": "2026-10-10",
-      "issue": null,
-      "pr": null
+      "issue": "https://github.com/teefloo/asuswrt-mcp/issues/2",
+      "pr": "https://github.com/teefloo/asuswrt-mcp/pull/4",
+      "pr_state": "draft"
     },
     {
       "id": "AS-P05",
