@@ -99,8 +99,9 @@ This inline register is the product-owned logical-patch projection used by SDLC-
         "57635d5"
       ],
       "checked_on": "2026-10-10",
-      "issue": null,
-      "pr": null
+      "issue": "https://github.com/teefloo/asuswrt-mcp/issues/7",
+      "pr": "https://github.com/teefloo/asuswrt-mcp/pull/8",
+      "pr_state": "draft"
     },
     {
       "id": "AS-P03",
@@ -140,6 +141,17 @@ This inline register is the product-owned logical-patch projection used by SDLC-
   ]
 }
 ```
+
+## ASUS remote syslog upstream convergence
+
+AS-P02: official upstream issue [#7](https://github.com/teefloo/asuswrt-mcp/issues/7)
+and draft [PR #8](https://github.com/teefloo/asuswrt-mcp/pull/8), exact
+head b4ff566ee691d5dbeb80ba0d180a2c8e4308d864 on upstream master.
+The retained remote-syslog implementation and nine source regression
+test functions were ported into the upstream tool/service/fake SSH owner.
+Local upstream test command passed; real router acceptance, maintainer CI,
+merge and immutable official release inclusion are not yet established.
+No downstream product source/publication or router runtime was changed.
 
 ## Convergence lifecycle
 
