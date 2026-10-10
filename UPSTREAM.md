@@ -80,7 +80,7 @@ This inline register is the product-owned logical-patch projection used by SDLC-
     {
       "id": "AS-P01",
       "kind": "upstream",
-      "scope": "Broader sanitized SSH router observability and bounded WireGuard slot management",
+      "scope": "Broader sanitized read-only SSH router observability beyond official upstream",
       "local_commits": [
         "6fff61f"
       ],
@@ -137,6 +137,18 @@ This inline register is the product-owned logical-patch projection used by SDLC-
       "checked_on": "2026-10-10",
       "issue": null,
       "pr": null
+    },
+    {
+      "id": "AS-P06",
+      "kind": "upstream",
+      "scope": "Explicitly confirmed, bounded operations on existing WireGuard client slots 1..5",
+      "local_commits": [
+        "6fff61f"
+      ],
+      "checked_on": "2026-10-10",
+      "issue": "https://github.com/teefloo/asuswrt-mcp/issues/9",
+      "pr": "https://github.com/teefloo/asuswrt-mcp/pull/10",
+      "pr_state": "draft"
     }
   ]
 }
@@ -152,6 +164,19 @@ test functions were ported into the upstream tool/service/fake SSH owner.
 Local upstream test command passed; real router acceptance, maintainer CI,
 merge and immutable official release inclusion are not yet established.
 No downstream product source/publication or router runtime was changed.
+
+## WireGuard source contribution
+
+A combined preliminary AS-P01 grouping has been split into
+AS-P01 sanitized observability and AS-P06 bounded WireGuard management
+because these are independent upstream behaviors. AS-P06 is tracked
+by [issue #9](https://github.com/teefloo/asuswrt-mcp/issues/9)
+and [draft PR #10](https://github.com/teefloo/asuswrt-mcp/pull/10),
+exact head 15b5ee7cdc6745681dbfbb1f05bac66aa73c60d7.
+The upstream candidate includes read-only/dry-run and explicit mutation
+contracts for configured client slots; 75 upstream tests passed.
+Maintainer review, official release inclusion and any live router
+acceptance are still pending. No downstream promotion occurred.
 
 ## Convergence lifecycle
 
