@@ -85,8 +85,9 @@ This inline register is the product-owned logical-patch projection used by SDLC-
         "6fff61f"
       ],
       "checked_on": "2026-10-10",
-      "issue": null,
-      "pr": null
+      "issue": "https://github.com/teefloo/asuswrt-mcp/issues/11",
+      "pr": "https://github.com/teefloo/asuswrt-mcp/pull/12",
+      "pr_state": "draft"
     },
     {
       "id": "AS-P02",
@@ -177,6 +178,22 @@ The upstream candidate includes read-only/dry-run and explicit mutation
 contracts for configured client slots; 75 upstream tests passed.
 Maintainer review, official release inclusion and any live router
 acceptance are still pending. No downstream promotion occurred.
+
+## Read-only router observability upstream contribution
+
+AS-P01 now links to official
+[issue #11](https://github.com/teefloo/asuswrt-mcp/issues/11) and
+[draft PR #12](https://github.com/teefloo/asuswrt-mcp/pull/12),
+head a114a9d89507a5b6f73a16e82a0450c244f72753. Source-only
+router read status, redaction and fake-SSH regressions ported against
+upstream master 46516892cade39177327d404fed09d91b1a3a8dd;
+the exact complete upstream unit suite passed 103 tests.
+AS-P02 remote syslog and AS-P06 WireGuard management remain separate
+source contributions; PR #12 deliberately excludes their mutations.
+All submitted upstream ASUS PRs are draft/unmerged. No local
+maintained release, official immutable adoption or live router
+acceptance occurred. AS-P05 distribution/release remains
+nonconformant pending owner decomposition or exact operator ADR.
 
 ## Convergence lifecycle
 
