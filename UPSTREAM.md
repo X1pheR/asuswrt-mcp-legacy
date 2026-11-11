@@ -55,8 +55,8 @@ and 69 unit tests on the exact patch, plus git diff --check.
 Only uv.lock changes; no router runtime is modified.
 
 X1pheR/asuswrt-mcp is an independently maintained downstream
-repository, NOT an upstream-network GitHub fork. An earlier direct
-cross-repository PR attempt therefore failed GitHub head validation;
+repository, not registered as a fork of the upstream repository on GitHub.
+An earlier direct cross-repository PR attempt failed GitHub head validation;
 temporary fork-local PR #15 was closed unmerged.
 A separate actual GitHub contribution fork,
 X1pheR/asuswrt-mcp-1, was then created without renaming,
