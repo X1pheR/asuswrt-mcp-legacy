@@ -142,7 +142,8 @@ This inline register is the product-owned logical-patch projection used by SDLC-
         "AS-P02",
         "AS-P03",
         "AS-P04",
-        "AS-P06"
+        "AS-P06",
+        "AS-P07"
       ],
       "exit_when": "Official upstream artifact includes the linked fixes, and source verification plus router/consumer and rollback acceptance establish that the own release identity and workflow can be retired."
     },
@@ -157,6 +158,18 @@ This inline register is the product-owned logical-patch projection used by SDLC-
       "issue": "https://github.com/teefloo/asuswrt-mcp/issues/9",
       "pr": "https://github.com/teefloo/asuswrt-mcp/pull/10",
       "pr_state": "draft"
+    },
+    {
+      "id": "AS-P07",
+      "kind": "upstream",
+      "scope": "Security lockfile refresh for aiohttp, certifi and required yarl resolver update",
+      "local_commits": [
+        "4effea7554d7c48619ef15f029c8a574123fc2dd"
+      ],
+      "checked_on": "2026-11-11",
+      "issue": "https://github.com/teefloo/asuswrt-mcp/issues/13",
+      "pr": "https://github.com/teefloo/asuswrt-mcp/pull/14",
+      "pr_state": "open"
     }
   ]
 }
