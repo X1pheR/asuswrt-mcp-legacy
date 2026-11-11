@@ -84,7 +84,7 @@ This inline register is the product-owned logical-patch projection used by SDLC-
       "local_commits": [
         "6fff61f"
       ],
-      "checked_on": "2026-10-10",
+      "checked_on": "2026-11-11",
       "issue": "https://github.com/teefloo/asuswrt-mcp/issues/11",
       "pr": "https://github.com/teefloo/asuswrt-mcp/pull/12",
       "pr_state": "draft"
@@ -99,7 +99,7 @@ This inline register is the product-owned logical-patch projection used by SDLC-
         "794ad24",
         "57635d5"
       ],
-      "checked_on": "2026-10-10",
+      "checked_on": "2026-11-11",
       "issue": "https://github.com/teefloo/asuswrt-mcp/issues/7",
       "pr": "https://github.com/teefloo/asuswrt-mcp/pull/8",
       "pr_state": "draft"
@@ -111,7 +111,7 @@ This inline register is the product-owned logical-patch projection used by SDLC-
       "local_commits": [
         "f86b830"
       ],
-      "checked_on": "2026-10-10",
+      "checked_on": "2026-11-11",
       "issue": "https://github.com/teefloo/asuswrt-mcp/issues/5",
       "pr": "https://github.com/teefloo/asuswrt-mcp/pull/6",
       "pr_state": "draft"
@@ -123,21 +123,28 @@ This inline register is the product-owned logical-patch projection used by SDLC-
       "local_commits": [
         "ce3ae38"
       ],
-      "checked_on": "2026-10-10",
+      "checked_on": "2026-11-11",
       "issue": "https://github.com/teefloo/asuswrt-mcp/issues/2",
       "pr": "https://github.com/teefloo/asuswrt-mcp/pull/4",
       "pr_state": "draft"
     },
     {
       "id": "AS-P05",
-      "kind": "upstream",
-      "scope": "Downstream verifier and trusted release packaging",
+      "kind": "distribution",
+      "scope": "Temporary X1pheR release version and image/publication workflow needed while tracked ASUS source fixes await official upstream artifacts",
       "local_commits": [
         "31b543a"
       ],
-      "checked_on": "2026-10-10",
-      "issue": null,
-      "pr": null
+      "checked_on": "2026-11-11",
+      "temporary": true,
+      "depends_on": [
+        "AS-P01",
+        "AS-P02",
+        "AS-P03",
+        "AS-P04",
+        "AS-P06"
+      ],
+      "exit_when": "Official upstream artifact includes the linked fixes, and source verification plus router/consumer and rollback acceptance establish that the own release identity and workflow can be retired."
     },
     {
       "id": "AS-P06",
@@ -146,7 +153,7 @@ This inline register is the product-owned logical-patch projection used by SDLC-
       "local_commits": [
         "6fff61f"
       ],
-      "checked_on": "2026-10-10",
+      "checked_on": "2026-11-11",
       "issue": "https://github.com/teefloo/asuswrt-mcp/issues/9",
       "pr": "https://github.com/teefloo/asuswrt-mcp/pull/10",
       "pr_state": "draft"
@@ -192,22 +199,13 @@ AS-P02 remote syslog and AS-P06 WireGuard management remain separate
 source contributions; PR #12 deliberately excludes their mutations.
 All submitted upstream ASUS PRs are draft/unmerged. No local
 maintained release, official immutable adoption or live router
-acceptance occurred. AS-P05 distribution/release remains
-nonconformant pending owner decomposition or exact operator ADR.
+acceptance occurred. AS-P05 is a temporary distribution record tied to the five linked upstream source patches; downstream release/adoption remains separately gated.
 
 ## Convergence lifecycle
 
 Verify existing upstream issues and PRs, current default-branch equivalence, and source-owned regression evidence before submitting missing contributions. A PR that is closed without merge is nonconformant, and a merged PR is not automatically present in an immutable official release. Remove a downstream patch only on a tested candidate against a suitable released upstream artifact. Retire the fork only after verified patch elimination, accepted distribution/ADR disposition, rollback readiness, consumer parity, and separate operator approval for production/retirement.
 
 
-## Unapproved distribution disposition proposal — AS-P05
+## Temporary distribution exit — AS-P05
 
-This is a proposal for an operator decision, not an approved ADR or a conformance exception. The register row remains unlinked and nonconformant. Exact source candidate: `471e973737b85e9a4403990e5a4e2181650d3a78`; mapped historical commits: `31b543a`. Initial/import commits can contain baseline and unrelated application files; approval must not cover the entire mapped commit merely because it appears in this row.
-
-Proposed narrow scope: Only the owned release workflow and release-contract tests mapped by commit31b543a. Router/API/SSH observability and dependency behavior remain outside this proposal. Active security worktree is a separate owner and was not integrated or modified.
-
-Requested decision: retain this precisely bounded product-owned distribution adapter, or move/remove it through the existing source/release/deployment owners when the upstream artifact supplies an equivalent accepted distribution. Our package names, registry targets and operator release controls do not constitute a useful upstream feature request; do not manufacture an issue/PR asking upstream to adopt downstream ownership. Any reusable application or verification improvement discovered in this history still needs its own tested upstream-compatible contribution.
-
-Before an approved disposition can clear a gate, the operator-owned product ADR must identify the exact retained scope, rationale, owner, acceptance evidence and review/exit trigger. Proposed review trigger: the next suitable official upstream release or2026-11-14, whichever comes first. Exit requires equivalent released functionality and distribution, accepted source/runtime/consumer parity, rollback readiness and the existing explicit production/retirement acceptance. This proposal authorizes none of those transitions and approves no missing contribution.
-
-The existing shared repository/release lifecycle invokes the single canonical SDLC checker before managed tag/publication/recovery transitions. Direct public workflow integration remains incomplete: the checker source is private and repository-scoped public GitHub tokens cannot read it. No production credentials, privileged public runner, second checker or extra service was introduced.
+Release-only identity and publication are temporary dependencies of the tracked source patches above, not a product divergence or an upstream contribution. The existing source verifier remains ordinary product-owned verification, not an exempt patch. Reassess removal after immutable upstream release and separately authorized consumer/rollback acceptance. No deployment or release is authorized by this register.
